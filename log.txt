@@ -1,0 +1,82 @@
+Battle between teams!
+Round 1
+Q attacks d, remaining health: 70
+a attacks Q, remaining health: 90
+Round 2
+E attacks d, remaining health: 45
+a attacks W, remaining health: 65
+Round 3
+W attacks a, remaining health: 100
+a attacks Q, remaining health: 80
+Round 4
+E attacks d, remaining health: 20
+d attacks E, remaining health: 65
+Round 5
+E attacks s, remaining health: 60
+a attacks Q, remaining health: 70
+Round 6
+Q attacks s, remaining health: 45
+s heals a, health: 115
+Round 7
+Q attacks a, remaining health: 105
+d attacks Q, remaining health: 55
+Round 8
+Q attacks a, remaining health: 95
+a attacks E, remaining health: 45
+Round 9
+E attacks d, remaining health: -5
+s heals s, health: 60
+Round 10
+Q attacks s, remaining health: 45
+s heals s, health: 60
+Round 11
+W attacks s, remaining health: 55
+a attacks E, remaining health: 25
+Round 12
+E attacks s, remaining health: 35
+a attacks Q, remaining health: 45
+Round 13
+Q attacks s, remaining health: 20
+a attacks W, remaining health: 50
+Round 14
+W attacks s, remaining health: 15
+a attacks Q, remaining health: 35
+Round 15
+E attacks s, remaining health: -5
+a attacks W, remaining health: 35
+Round 16
+E attacks a, remaining health: 80
+a attacks W, remaining health: 20
+Round 17
+W heals Q, health: 50
+a attacks E, remaining health: 5
+Round 18
+Q attacks a, remaining health: 70
+a attacks E, remaining health: -15
+Round 19
+W heals Q, health: 65
+a attacks W, remaining health: 5
+Round 20
+Q attacks a, remaining health: 60
+a attacks Q, remaining health: 55
+Round 21
+W attacks a, remaining health: 60
+a attacks W, remaining health: -10
+Round 22
+Q attacks a, remaining health: 50
+a attacks Q, remaining health: 45
+Round 23
+Q attacks a, remaining health: 40
+a attacks Q, remaining health: 35
+Round 24
+Q attacks a, remaining health: 30
+a attacks Q, remaining health: 25
+Round 25
+Q attacks a, remaining health: 20
+a attacks Q, remaining health: 15
+Round 26
+Q attacks a, remaining health: 10
+a attacks Q, remaining health: 5
+Round 27
+Q attacks a, remaining health: 0
+Team 1 wins!
