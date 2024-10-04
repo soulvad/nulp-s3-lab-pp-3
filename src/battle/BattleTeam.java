@@ -73,18 +73,12 @@ public class BattleTeam {
     }
 
     private void performAction(Droid attacker, List<Droid> team, Droid target) {
-        if (attacker instanceof HealerDroid) {
-            if (random.nextBoolean()) {
-                Droid teammate = getRandomAliveDroid(team);
-                ((HealerDroid) attacker).specialAbility(teammate);
-                battleLog.add(attacker.getName() + " heals " + teammate.getName() + ", health: " + teammate.getHealth());
-            } else {
-                attacker.attack(target);
-                battleLog.add(attacker.getName() + " attacks " + target.getName() + ", remaining health: " + target.getHealth());
-            }
+        if (attacker instanceof HealerDroid && random.nextBoolean()) {
+            Droid teammate = getRandomAliveDroid(team);
+            ((HealerDroid) attacker).heal(teammate);
+            battleLog.add(attacker.getName() + " heals " + teammate.getName() + ", health: " + teammate.getHealth());
         } else {
             attacker.attack(target);
-            attacker.specialAbility(target);
             battleLog.add(attacker.getName() + " attacks " + target.getName() + ", remaining health: " + target.getHealth());
         }
     }

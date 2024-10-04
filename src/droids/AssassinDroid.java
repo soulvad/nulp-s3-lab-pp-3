@@ -21,9 +21,4 @@ public class AssassinDroid extends Droid {
         enemy.takeDamage(damageDealt);
         System.out.println(this.name + " attacks " + enemy.getName() + " for " + damageDealt + damageString + ", remaining health: " + enemy.getHealth());
     }
-
-    @Override
-    public void specialAbility(Droid droid) {
-        ;
-    }
 }

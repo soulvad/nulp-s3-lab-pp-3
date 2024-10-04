@@ -1,0 +1,13 @@
+Battle between q and D
+Round 1
+q attacks D, remaining health: 75
+D attacks q, remaining health: 85
+q attacks D, remaining health: 60
+D attacks q, remaining health: 70
+q attacks D, remaining health: 45
+D attacks q, remaining health: 55
+q attacks D, remaining health: 30
+D attacks q, remaining health: 15
+q attacks D, remaining health: 15
+D attacks q, remaining health: -25
+D wins!

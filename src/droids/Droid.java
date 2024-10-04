@@ -40,6 +40,4 @@ public abstract class Droid {
     }
 
     public abstract void attack(Droid enemy);
-
-    public abstract void specialAbility(Droid droid);
 }

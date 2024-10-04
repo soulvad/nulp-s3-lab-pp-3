@@ -11,13 +11,13 @@ public class WarriorDroid extends Droid {
     }
 
     @Override
-    public void attack(Droid enemy) {
-        System.out.println(this.name + " attacks " + enemy.getName() + " for " + damage + " damage!" + ", remaining health: " + enemy.getHealth());
-        enemy.takeDamage(this.damage);
+    public void takeDamage(int damage) {
+        this.health -= damage - this.defense;
     }
 
     @Override
-    public void specialAbility(Droid droid) {
-        ;
+    public void attack(Droid enemy) {
+        System.out.println(this.name + " attacks " + enemy.getName() + " for " + damage + " damage!" + ", remaining health: " + enemy.getHealth());
+        enemy.takeDamage(this.damage);
     }
 }

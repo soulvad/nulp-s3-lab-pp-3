@@ -16,8 +16,8 @@ public class HealerDroid extends Droid {
         enemy.takeDamage(this.damage);
     }
 
-    @Override
-    public void specialAbility(Droid droid) {
-        ;
+    public void heal(Droid enemy) {
+        System.out.println(this.name + " attacks " + enemy.getName() + " for " + this.damage + " damage!" + ", remaining health: " + enemy.getHealth());
+        enemy.takeDamage(this.damage);
     }
 }
