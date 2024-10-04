@@ -2,6 +2,7 @@ package battle;
 
 import droids.Droid;
 import droids.HealerDroid;
+import droids.WarriorDroid;
 import utils.BattleLogger;
 import java.util.ArrayList;
 import java.util.List;
@@ -62,6 +63,21 @@ public class BattleTeam {
         resetTeams();
     }
 
+    private void performAction(Droid attacker, List<Droid> team, Droid target) {
+        if (attacker instanceof HealerDroid && random.nextBoolean()) {
+            Droid teammate = getRandomAliveDroid(team);
+            ((HealerDroid) attacker).heal(teammate);
+            battleLog.add(attacker.getName() + " heals " + teammate.getName() + ", health: " + teammate.getHealth());
+        } else {
+            attacker.attack(target);
+            battleLog.add(attacker.getName() + " attacks " + target.getName() + ", remaining health: " + target.getHealth());
+            if(target instanceof WarriorDroid) {
+                ((WarriorDroid) target).reflectAttack(attacker);
+                battleLog.add(target.getName() + " reflect attacks " + attacker.getName() + ", remaining health: " + target.getHealth());
+            }
+        }
+    }
+
     private Droid getRandomAliveDroid(List<Droid> team) {
         List<Droid> aliveDroids = new ArrayList<>();
         for (Droid droid : team) {
@@ -72,15 +88,13 @@ public class BattleTeam {
         return aliveDroids.get(random.nextInt(aliveDroids.size()));
     }
 
-    private void performAction(Droid attacker, List<Droid> team, Droid target) {
-        if (attacker instanceof HealerDroid && random.nextBoolean()) {
-            Droid teammate = getRandomAliveDroid(team);
-            ((HealerDroid) attacker).heal(teammate);
-            battleLog.add(attacker.getName() + " heals " + teammate.getName() + ", health: " + teammate.getHealth());
-        } else {
-            attacker.attack(target);
-            battleLog.add(attacker.getName() + " attacks " + target.getName() + ", remaining health: " + target.getHealth());
+    private boolean areAnyDroidsAlive(List<Droid> team) {
+        for (Droid droid : team) {
+            if (droid.isAlive()) {
+                return true;
+            }
         }
+        return false;
     }
 
     private void resetTeams() {
@@ -93,12 +107,4 @@ public class BattleTeam {
         System.out.println("All droids from both teams have been restored to their initial health.");
     }
 
-    private boolean areAnyDroidsAlive(List<Droid> team) {
-        for (Droid droid : team) {
-            if (droid.isAlive()) {
-                return true;
-            }
-        }
-        return false;
-    }
 }

@@ -1,6 +1,7 @@
 package battle;
 
 import droids.Droid;
+import droids.WarriorDroid;
 import utils.BattleLogger;
 import java.util.ArrayList;
 import java.util.List;
@@ -22,16 +23,26 @@ public class BattleOneOnOne {
 
     public void startBattle() {
         battleLog.add("Battle between " + droid1.getName() + " and " + droid2.getName());
-        int round = 1;
 
-        battleLog.add("Round " + round);
-        System.out.println("Round " + round);
+        int round = 1;
         while (droid1.isAlive() && droid2.isAlive()) {
+            battleLog.add("Round " + round);
+            System.out.println("Round " + round);
+
             droid1.attack(droid2);
             battleLog.add(droid1.getName() + " attacks " + droid2.getName() + ", remaining health: " + droid2.getHealth());
+            if(droid2 instanceof WarriorDroid) {
+                ((WarriorDroid) droid2).reflectAttack(droid1);
+                battleLog.add(droid2.getName() + " reflect attacks " + droid1.getName() + ", remaining health: " + droid1.getHealth());
+            }
+
             if (droid2.isAlive()) {
                 droid2.attack(droid1);
                 battleLog.add(droid2.getName() + " attacks " + droid1.getName() + ", remaining health: " + droid1.getHealth());
+                if(droid1 instanceof WarriorDroid) {
+                    ((WarriorDroid) droid1).reflectAttack(droid2);
+                    battleLog.add(droid1.getName() + " reflect attacks " + droid2.getName() + ", remaining health: " + droid2.getHealth());
+                }
             }
             round++;
         }

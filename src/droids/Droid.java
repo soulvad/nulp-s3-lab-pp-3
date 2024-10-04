@@ -35,6 +35,10 @@ public abstract class Droid {
         this.health -= damage - this.defense;
     }
 
+    public void takeReflectDamage(int reflectDamage) {
+        this.health -= reflectDamage;
+    }
+
     public void takeHeal(int heal) {
         this.health += heal;
     }

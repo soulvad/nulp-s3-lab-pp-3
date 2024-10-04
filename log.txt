@@ -1,67 +1,86 @@
 Battle between teams!
 Round 1
-e attacks D, remaining health: 65
-S heals D, health: 55
+w heals w, health: 75
+S heals D, health: 80
 Round 2
-q attacks A, remaining health: 95
-D attacks w, remaining health: 35
-Round 3
-q attacks D, remaining health: 40
-D attacks e, remaining health: 65
-Round 4
-w attacks D, remaining health: 30
-S attacks q, remaining health: 100
-Round 5
-q attacks A, remaining health: 90
-A attacks e, remaining health: 50
-Round 6
-e attacks A, remaining health: 75
-A attacks e, remaining health: 35
-Round 7
 q attacks S, remaining health: 70
-S attacks q, remaining health: 100
+S heals D, health: 70
+Round 3
+e attacks D, remaining health: 45
+D attacks q, remaining health: 85
+q reflect attacks D, remaining health: 85
+Round 4
+e attacks S, remaining health: 50
+D attacks e, remaining health: 65
+Round 5
+e attacks A, remaining health: 85
+A reflect attacks e, remaining health: 85
+A attacks w, remaining health: 65
+Round 6
+e attacks A, remaining health: 70
+A reflect attacks e, remaining health: 70
+A attacks e, remaining health: 36
+Round 7
+w attacks A, remaining health: 70
+A reflect attacks w, remaining health: 70
+D attacks w, remaining health: 38
 Round 8
-q attacks D, remaining health: 15
-S heals S, health: 65
+w heals q, health: 85
+D attacks q, remaining health: 70
+q reflect attacks D, remaining health: 70
 Round 9
-e attacks S, remaining health: 45
-A attacks w, remaining health: 25
+q attacks A, remaining health: 65
+A reflect attacks q, remaining health: 65
+S attacks q, remaining health: 63
+q reflect attacks S, remaining health: 63
 Round 10
-w attacks D, remaining health: 5
-A attacks q, remaining health: 95
+w attacks A, remaining health: 65
+A reflect attacks w, remaining health: 65
+S heals S, health: 38
 Round 11
-e attacks D, remaining health: -20
-S attacks q, remaining health: 95
+e attacks D, remaining health: 6
+A attacks q, remaining health: 58
+q reflect attacks A, remaining health: 58
 Round 12
-e attacks S, remaining health: 25
-S heals S, health: 20
+q attacks A, remaining health: 53
+A reflect attacks q, remaining health: 53
+A attacks e, remaining health: 21
 Round 13
-q attacks S, remaining health: 10
-S heals A, health: 75
+q attacks D, remaining health: -9
+A attacks q, remaining health: 46
+q reflect attacks A, remaining health: 46
 Round 14
-e attacks S, remaining health: -10
-A attacks e, remaining health: 20
+e attacks A, remaining health: 31
+A reflect attacks e, remaining health: 31
+A attacks q, remaining health: 41
+q reflect attacks A, remaining health: 41
 Round 15
-w heals e, health: 10
-A attacks w, remaining health: 15
+w attacks S, remaining health: 33
+S heals S, health: 28
 Round 16
-w heals q, health: 95
-A attacks q, remaining health: 90
+q attacks A, remaining health: 19
+A reflect attacks q, remaining health: 19
+S attacks q, remaining health: 34
+q reflect attacks S, remaining health: 34
 Round 17
-e attacks A, remaining health: 60
-A attacks w, remaining health: 5
+q attacks A, remaining health: 14
+A reflect attacks q, remaining health: 14
+S attacks w, remaining health: 26
 Round 18
-q attacks A, remaining health: 55
-A attacks w, remaining health: -5
+w attacks S, remaining health: 16
+A attacks w, remaining health: 16
 Round 19
-e attacks A, remaining health: 15
-A attacks e, remaining health: -5
+e attacks S, remaining health: -4
+A attacks e, remaining health: -1
 Round 20
-q attacks A, remaining health: 10
-A attacks q, remaining health: 85
+q attacks A, remaining health: 9
+A reflect attacks q, remaining health: 9
+A attacks w, remaining health: 6
 Round 21
-q attacks A, remaining health: 5
-A attacks q, remaining health: 80
+q attacks A, remaining health: 4
+A reflect attacks q, remaining health: 4
+A attacks w, remaining health: -4
 Round 22
-q attacks A, remaining health: 0
+q attacks A, remaining health: -1
+A reflect attacks q, remaining health: -1
 Team 1 wins!
