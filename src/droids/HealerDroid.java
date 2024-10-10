@@ -1,6 +1,8 @@
 package droids;
 
+import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 
 public class HealerDroid extends Droid {
     private int healingPower;
@@ -11,14 +13,26 @@ public class HealerDroid extends Droid {
     }
 
     @Override
-    public void attack(Droid enemy) {
-        System.out.println(this.name + " attacks " + enemy.getName() + " for " + this.damage + " damage!" + ", remaining health: " + enemy.getHealth());
-        enemy.takeDamage(this.damage);
-    }
+    public List<String> attack(Droid enemy, Droid teammate) {
+        Random rand = new Random();
+        String notification, notification2;
 
-    //special ability of Healer
-    public void heal(Droid enemy) {
-        System.out.println(this.name + " attacks " + enemy.getName() + " for " + this.damage + " damage!" + ", remaining health: " + enemy.getHealth());
-        enemy.takeHeal(this.healingPower);
+        //special ability of Healer
+        if(rand.nextBoolean()){
+            notification = this.name + " attacks " + enemy.getName() + " for " + damage + " damage!" + ", remaining health: " + enemy.getHealth();
+            notification2 = enemy.takeDamage(this.damage);
+        }
+        else {
+            notification = this.name + " heals " + enemy.getName() + " for " + this.healingPower + " hp!" + ", remaining health: " + enemy.getHealth();
+            enemy.takeHeal(this.healingPower);
+            notification2 = "";
+        }
+        System.out.println(notification);
+
+        List<String> notifications = new ArrayList<>();
+        notifications.add(notification);
+        notifications.add(notification2);
+
+        return notifications;
     }
 }

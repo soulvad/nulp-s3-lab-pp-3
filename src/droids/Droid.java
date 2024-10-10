@@ -31,8 +31,9 @@ public abstract class Droid {
         return health > 0;
     }
 
-    public void takeDamage(int damage) {
+    public String takeDamage(int damage) {
         this.health -= damage - this.defense;
+        return "";
     }
 
     public void takeReflectDamage(int reflectDamage) {
@@ -43,5 +44,5 @@ public abstract class Droid {
         this.health += heal;
     }
 
-    public abstract void attack(Droid enemy);
+    public abstract List<String> attack(Droid enemy, Droid teammate);
 }

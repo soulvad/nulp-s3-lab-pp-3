@@ -1,5 +1,7 @@
 package droids;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Random;
 
 public class AssassinDroid extends Droid {
@@ -11,7 +13,7 @@ public class AssassinDroid extends Droid {
     }
 
     @Override
-    public void attack(Droid enemy) {
+    public List<String> attack(Droid enemy, Droid teammate) {
         int damageDealt = calculateCriticalDamage();
         String damageString;
         if(damageDealt == this.damage) {
@@ -19,8 +21,16 @@ public class AssassinDroid extends Droid {
         } else {
             damageString = " critical damage!";
         }
-        enemy.takeDamage(damageDealt);
-        System.out.println(this.name + " attacks " + enemy.getName() + " for " + damageDealt + damageString + ", remaining health: " + enemy.getHealth());
+        String notification2 = enemy.takeDamage(damageDealt);
+
+        String notification = this.name + " attacks " + enemy.getName() + " for " + damageDealt + damageString + ", remaining health: " + enemy.getHealth();
+        System.out.println(notification);
+
+        List<String> notifications = new ArrayList<>();
+        notifications.add(notification);
+        notifications.add(notification2);
+
+        return notifications;
     }
 
     //special ability of Assassin
