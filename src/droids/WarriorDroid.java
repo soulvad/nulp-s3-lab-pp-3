@@ -14,7 +14,7 @@ public class WarriorDroid extends Droid {
     }
 
     public String takeDamage(Droid enemy) {
-        super.takeDamage(enemy.damage);
+        super.takeDamage(enemy);
 
         //special ability of Warrior
         String notification = this.name + " attacks " + enemy.getName() + " for " + reflectDamage + " reflected damage!" + ", remaining health: " + enemy.getHealth();
@@ -28,7 +28,7 @@ public class WarriorDroid extends Droid {
     public List<String> attack(Droid enemy, Droid teammate) {
         String notification = this.name + " attacks " + enemy.getName() + " for " + damage + " damage!" + ", remaining health: " + enemy.getHealth();
         System.out.println(notification);
-        String notification2 = enemy.takeDamage(this.damage);
+        String notification2 = enemy.takeDamage(this);
 
         List<String> notifications = new ArrayList<>();
         notifications.add(notification);

@@ -23,6 +23,10 @@ public abstract class Droid {
         return health;
     }
 
+    public int getDamage() {
+        return damage;
+    }
+
     public void setHealth(int health) {
         this.health = health;
     }
@@ -33,6 +37,11 @@ public abstract class Droid {
 
     public String takeDamage(int damage) {
         this.health -= damage - this.defense;
+        return "";
+    }
+
+    public String takeDamage(Droid droid) {
+        this.health -= droid.getDamage() - this.defense;
         return "";
     }
 
