@@ -6,25 +6,28 @@ import java.util.Random;
 
 public class AssassinDroid extends Droid {
     private double critChance;
+    private int defaultDamage;
 
     public AssassinDroid(String name) {
         super(name, 90, 25, 0);
         this.critChance = 0.2;
+        this.defaultDamage = this.damage;
     }
 
     @Override
     public List<String> attack(Droid enemy, Droid teammate) {
-        int damageDealt = calculateCriticalDamage();
+        this.damage = calculateCriticalDamage();
         String damageString;
-        if(damageDealt == this.damage) {
+        if(this.defaultDamage == this.damage) {
             damageString = " damage!";
         } else {
             damageString = " critical damage!";
         }
-        String notification2 = enemy.takeDamage(damageDealt);
 
-        String notification = this.name + " attacks " + enemy.getName() + " for " + damageDealt + damageString + ", remaining health: " + enemy.getHealth();
-        System.out.println(notification);
+        String notification2 = enemy.takeDamage(this);
+        String notification = this.name + " attacks " + enemy.getName() + " for " + this.damage + damageString + ", remaining health: " + enemy.getCurrentHealth();
+
+        this.damage = this.defaultDamage;
 
         List<String> notifications = new ArrayList<>();
         notifications.add(notification);

@@ -2,14 +2,12 @@ package droids;
 
 import java.util.ArrayList;
 import java.util.List;
-import battle.*;
-import utils.BattleLogger;
 
 public class WarriorDroid extends Droid {
     private int reflectDamage;
 
     public WarriorDroid(String name) {
-        super(name, 100, 15, 10);
+        super(name, 100, 15, 8);
         this.reflectDamage = 7;
     }
 
@@ -17,18 +15,16 @@ public class WarriorDroid extends Droid {
         super.takeDamage(enemy);
 
         //special ability of Warrior
-        String notification = this.name + " attacks " + enemy.getName() + " for " + reflectDamage + " reflected damage!" + ", remaining health: " + enemy.getHealth();
-        System.out.println(notification);
         enemy.takeReflectDamage(this.reflectDamage);
+        String notification = this.name + " attacks " + enemy.getName() + " for " + this.reflectDamage + " reflected damage!" + ", remaining health: " + enemy.getCurrentHealth();
 
         return notification;
     }
 
     @Override
     public List<String> attack(Droid enemy, Droid teammate) {
-        String notification = this.name + " attacks " + enemy.getName() + " for " + damage + " damage!" + ", remaining health: " + enemy.getHealth();
-        System.out.println(notification);
         String notification2 = enemy.takeDamage(this);
+        String notification = this.name + " attacks " + enemy.getName() + " for " + this.damage + " damage!" + ", remaining health: " + enemy.getCurrentHealth();
 
         List<String> notifications = new ArrayList<>();
         notifications.add(notification);

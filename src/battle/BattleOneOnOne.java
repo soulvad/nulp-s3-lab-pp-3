@@ -1,62 +1,68 @@
 package battle;
 
 import droids.Droid;
-import droids.WarriorDroid;
 import utils.BattleLogger;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
-public class BattleOneOnOne {
+public class BattleOneOnOne extends Battle {
     private Droid droid1;
     private Droid droid2;
-    private List<String> battleLog = new ArrayList<>();
     private int initialHealth1;
     private int initialHealth2;
 
     public BattleOneOnOne(Droid droid1, Droid droid2) {
+        this.winnerName = new String[]{"Droid1","Droid2","Neither"};
         this.droid1 = droid1;
         this.droid2 = droid2;
-        this.initialHealth1 = droid1.getHealth();
-        this.initialHealth2 = droid2.getHealth();
+        this.initialHealth1 = droid1.getCurrentHealth();
+        this.initialHealth2 = droid2.getCurrentHealth();
     }
 
     public void startBattle() {
-        battleLog.add("Battle between " + droid1.getName() + " and " + droid2.getName());
+        printAndSaveMassage("Battle between " + droid1.getName() + " and " + droid2.getName());
 
-        int round = 1;
-        while (droid1.isAlive() && droid2.isAlive()) {
-            battleLog.add("Round " + round);
-            System.out.println("Round " + round);
+        loopBattle();
 
-            List<String> notifications = droid1.attack(droid2, droid1);
-            battleLog.add(notifications.get(0));
-            battleLog.add(notifications.get(1));
+        String winner = getWinnerName(droid1.isAlive(), droid2.isAlive());
+        printAndSaveMassage(winner + " wins!");
 
-            if (droid2.isAlive()) {
-                notifications = droid2.attack(droid1, droid2);
-                battleLog.add(notifications.get(0));
-                battleLog.add(notifications.get(1));
-            }
-            round++;
-        }
-
-        String winner = droid1.isAlive() ? droid1.getName() : droid2.getName();
-        battleLog.add(winner + " wins!");
-        System.out.println(winner + " wins!");
-
-        Scanner scanner = new Scanner(System.in);
-        System.out.println("Enter the file name to save the battle:");
-        String fileName = scanner.nextLine();
-
-        BattleLogger.logBattle(fileName, battleLog);
+        saveBattleLogs();
 
         resetDroids();
     }
 
-    private void resetDroids() {
-        droid1.setHealth(initialHealth1);
-        droid2.setHealth(initialHealth2);
+    protected void loopBattle() {
+        int round = 1;
+        while (areDroidsAlive()) {
+
+            printAndSaveMassage("Round " + round);
+
+            List<String> notifications = simulateBattle(droid1, droid2);
+            printNotifications(notifications);
+            saveNotifications(notifications);
+
+            if (areDroidsAlive()) {
+                notifications = simulateBattle(droid2, droid1);
+                printNotifications(notifications);
+                saveNotifications(notifications);
+            }
+            round++;
+        }
+    }
+
+    private List<String> simulateBattle(Droid attacker, Droid defender) {
+        return attacker.attack(defender, attacker);
+    }
+
+    protected boolean areDroidsAlive() {
+        return droid1.isAlive() && droid2.isAlive();
+    }
+
+    protected void resetDroids() {
+        droid1.setCurrentHealth(initialHealth1);
+        droid2.setCurrentHealth(initialHealth2);
         System.out.println(droid1.getName() + " and " + droid2.getName() + " have been restored to their initial health.");
     }
 }

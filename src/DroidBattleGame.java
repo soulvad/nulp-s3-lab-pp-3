@@ -123,7 +123,7 @@ public class DroidBattleGame {
         }
 
         BattleTeam battle = new BattleTeam(team1, team2);
-        battle.startTeamBattle();
+        battle.startBattle();
     }
 
     private static void replayBattle(Scanner scanner) {

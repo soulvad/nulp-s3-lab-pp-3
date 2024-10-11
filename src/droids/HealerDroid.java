@@ -19,15 +19,14 @@ public class HealerDroid extends Droid {
 
         //special ability of Healer
         if(rand.nextBoolean()){
-            notification = this.name + " attacks " + enemy.getName() + " for " + damage + " damage!" + ", remaining health: " + enemy.getHealth();
-            notification2 = enemy.takeDamage(this.damage);
+            notification2 = enemy.takeDamage(this);
+            notification = this.name + " attacks " + enemy.getName() + " for " + this.damage + " damage!" + ", remaining health: " + enemy.getCurrentHealth();
         }
         else {
-            notification = this.name + " heals " + enemy.getName() + " for " + this.healingPower + " hp!" + ", remaining health: " + enemy.getHealth();
             enemy.takeHeal(this.healingPower);
+            notification = this.name + " heals " + enemy.getName() + " for " + this.healingPower + " hp!" + ", remaining health: " + enemy.getCurrentHealth();
             notification2 = "";
         }
-        System.out.println(notification);
 
         List<String> notifications = new ArrayList<>();
         notifications.add(notification);

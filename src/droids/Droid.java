@@ -4,13 +4,15 @@ import java.util.List;
 
 public abstract class Droid {
     protected String name;
-    protected int health;
+    protected int currentHealth;
+    protected int maxHealth;
     protected int damage;
     protected int defense;
 
     public Droid(String name, int health, int damage, int defense) {
         this.name = name;
-        this.health = health;
+        this.currentHealth = health;
+        this.maxHealth = health;
         this.damage = damage;
         this.defense = defense;
     }
@@ -19,38 +21,43 @@ public abstract class Droid {
         return name;
     }
 
-    public int getHealth() {
-        return health;
+    public int getCurrentHealth() {
+        return currentHealth;
     }
 
     public int getDamage() {
         return damage;
     }
 
-    public void setHealth(int health) {
-        this.health = health;
+    public void setCurrentHealth(int currentHealth) {
+        this.currentHealth = currentHealth;
     }
 
     public boolean isAlive() {
-        return health > 0;
+        return currentHealth > 0;
     }
 
     public String takeDamage(int damage) {
-        this.health -= damage - this.defense;
+        this.currentHealth -= damage - this.defense;
         return "";
     }
 
     public String takeDamage(Droid droid) {
-        this.health -= droid.getDamage() - this.defense;
+        if(droid.getDamage() - this.defense > 0) {
+            this.currentHealth -= droid.getDamage() - this.defense;
+        }
         return "";
     }
 
     public void takeReflectDamage(int reflectDamage) {
-        this.health -= reflectDamage;
+        this.currentHealth -= reflectDamage;
     }
 
     public void takeHeal(int heal) {
-        this.health += heal;
+        this.currentHealth += heal;
+        if (this.currentHealth > this.maxHealth) {
+            this.currentHealth = this.maxHealth;
+        }
     }
 
     public abstract List<String> attack(Droid enemy, Droid teammate);
