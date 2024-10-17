@@ -37,11 +37,6 @@ public abstract class Droid {
         return currentHealth > 0;
     }
 
-    public String takeDamage(int damage) {
-        this.currentHealth -= damage - this.defense;
-        return "";
-    }
-
     public String takeDamage(Droid droid) {
         if(droid.getDamage() - this.defense > 0) {
             this.currentHealth -= droid.getDamage() - this.defense;
